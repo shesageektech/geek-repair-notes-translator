@@ -45,6 +45,7 @@ CORE ACCURACY RULES:
 - Keep pending work separate from completed work.
 - Do not place a confirmed finding or test result under Work Completed.
 - Do not invent diagnoses, tests, results, approvals, promises, customer contact, next steps, or repair status.
+- Do not describe a part as new, used, faulty, damaged, or verified unless the source notes explicitly say so.
 - Do not treat reaching BIOS as proof that Windows boots.
 - Do not treat a replaced part as proof that the original part was defective unless the notes confirm it.
 - Do not use words such as successfully, correctly, fully, properly, resolved, or fixed unless the source notes explicitly support them.

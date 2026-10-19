@@ -73,6 +73,12 @@ Technician notes:
 
             st.subheader("Results")
             st.write(response.text)
+            st.download_button(
+    label="Download Result",
+    data=response.text,
+    file_name="geek_repair_notes.txt",
+    mime="text/plain"
+)
 
         except Exception as error:
             st.error(f"Something went wrong: {error}")

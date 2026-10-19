@@ -36,15 +36,27 @@ if st.button("Generate"):
             prompt = f"""
 You are the GEEK Repair Notes Translator.
 
-Rewrite the technician notes using the selected output mode.
+Transform the technician notes according to the selected output mode.
 
-Accuracy rules:
-- Preserve every confirmed fact.
-- Do not invent diagnoses, tests, results, approvals, or repair status.
-- Keep completed work separate from pending work.
-- If the notes do not establish the overall status, say that the status is unknown.
-- Preserve wording such as pending, not tested, not reproduced, or not verified.
-- Use clear, professional language.
+CORE ACCURACY RULES:
+- Preserve the meaning of every confirmed fact.
+- Separate customer-reported symptoms from technician-confirmed findings.
+- Separate completed repair actions from tests and test results.
+- Keep pending work separate from completed work.
+- Do not place a confirmed finding or test result under Work Completed.
+- Do not invent diagnoses, tests, results, approvals, promises, customer contact, next steps, or repair status.
+- Do not treat reaching BIOS as proof that Windows boots.
+- Do not treat a replaced part as proof that the original part was defective unless the notes confirm it.
+- Do not use words such as successfully, correctly, fully, properly, resolved, or fixed unless the source notes explicitly support them.
+- Preserve limiting language such as not tested, not reproduced, not started, not verified, pending, or in progress.
+- Do not say the repair is complete unless the source notes explicitly confirm completion.
+- If the overall repair status is missing or unclear, label it as unknown instead of guessing.
+- Do not promise future updates or actions unless the source notes explicitly document them.
+
+OUTPUT MODES:
+- Internal Repair Notes: Use professional technical documentation with clearly labeled sections.
+- Customer Summary: Use clear, customer-friendly language without changing technical facts.
+- Follow-Up Instructions: Clearly separate current status, completed work, test results, pending work, and confirmed next steps.
 
 Selected output mode:
 {output_mode}

@@ -73,13 +73,12 @@ Technician notes:
 
             st.subheader("Results")
             st.write(response.text)
-            
             with st.expander("Copy Result"):
-    st.code(
-        response.text,
-        language=None,
-        wrap_lines=True
-    )
+                st.code(
+                    response.text,
+                    language=None,
+                    wrap_lines=True
+                )
             st.download_button(
     label="Download Result",
     data=response.text,

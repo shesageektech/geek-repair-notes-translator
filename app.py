@@ -1,5 +1,6 @@
 import streamlit as st
 from google import genai
+from logo_data import LOGO_B64
 
 st.set_page_config(
     page_title="GEEK Repair Notes Translator",
@@ -20,28 +21,56 @@ st.markdown(
             padding-top: 3rem;
             padding-bottom: 4rem;
         }
+        .geek-brand-row {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+        }
+        .geek-logo-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 86px;
+            height: 86px;
+            padding: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.18);
+        }
+        .geek-logo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
         .geek-badge {
             display: inline-block;
-            padding: 0.38rem 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(96, 165, 250, 0.45);
+            padding: 0.42rem 0.8rem;
+            border: 1px solid rgba(96, 165, 250, 0.55);
             border-radius: 999px;
-            background: rgba(37, 99, 235, 0.14);
-            color: #93c5fd;
+            background: rgba(37, 99, 235, 0.18);
+            color: #bfdbfe;
             font-size: 0.78rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
+        div[data-testid="stHeadingWithActionElements"] h1,
+        div[data-testid="stMarkdownContainer"] h1,
         h1 {
-            color: #f8fafc;
+            color: #ffffff !important;
             font-size: clamp(2.25rem, 6vw, 3.7rem) !important;
             line-height: 1.04 !important;
             letter-spacing: -0.04em;
             margin-bottom: 0.65rem !important;
         }
+        div[data-testid="stHeadingWithActionElements"] h2,
+        div[data-testid="stHeadingWithActionElements"] h3 {
+            color: #f8fafc !important;
+        }
         .geek-intro {
-            color: #cbd5e1;
+            color: #dbeafe;
             font-size: 1.08rem;
             line-height: 1.7;
             margin-bottom: 1.7rem;
@@ -51,9 +80,15 @@ st.markdown(
             margin: 0.5rem 0 1.35rem;
             border-left: 4px solid #38bdf8;
             border-radius: 0 10px 10px 0;
-            background: rgba(14, 165, 233, 0.09);
-            color: #dbeafe;
+            background: rgba(14, 165, 233, 0.11);
+            color: #e0f2fe;
             font-size: 0.92rem;
+        }
+        div[data-testid="stTextArea"] label p,
+        div[data-testid="stSelectbox"] label p,
+        div[data-testid="stWidgetLabel"] p {
+            color: #f1f5f9 !important;
+            font-weight: 700 !important;
         }
         div[data-baseweb="textarea"] textarea,
         div[data-baseweb="select"] > div {
@@ -83,20 +118,40 @@ st.markdown(
         }
         div[data-testid="stExpander"] {
             border-radius: 12px;
-            border-color: rgba(148, 163, 184, 0.28);
+            border-color: rgba(148, 163, 184, 0.38);
         }
         .geek-footer {
             margin-top: 2.5rem;
             text-align: center;
-            color: #64748b;
-            font-size: 0.8rem;
+            color: #a8b6ca;
+            font-size: 0.82rem;
+        }
+        @media (max-width: 640px) {
+            .block-container {
+                padding-top: 2rem;
+            }
+            .geek-logo-wrap {
+                width: 72px;
+                height: 72px;
+            }
+            .geek-badge {
+                font-size: 0.68rem;
+            }
         }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-st.markdown('<div class="geek-badge">She\'s a Geek AI Project</div>', unsafe_allow_html=True)
+st.markdown(
+    f'''<div class="geek-brand-row">
+        <div class="geek-logo-wrap">
+            <img class="geek-logo" src="data:image/png;base64,{LOGO_B64}" alt="GEEK logo">
+        </div>
+        <div class="geek-badge">She's a Geek AI Project</div>
+    </div>''',
+    unsafe_allow_html=True
+)
 st.title("GEEK Repair Notes Translator")
 st.markdown(
     '<div class="geek-intro">Turn rough technician notes into clear, accurate documentation without changing the facts.</div>',

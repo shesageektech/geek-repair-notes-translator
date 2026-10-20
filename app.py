@@ -1,4 +1,5 @@
 import base64
+import io
 
 import streamlit as st
 from google import genai
@@ -147,7 +148,7 @@ st.markdown(
 
 brand_logo, brand_label = st.columns([0.13, 0.87], vertical_alignment="center")
 with brand_logo:
-    st.image(base64.b64decode(LOGO_B64), width=86)
+    st.image(io.BytesIO(base64.b64decode(LOGO_B64)), width=86)
 with brand_label:
     st.markdown(
         '<div class="geek-badge">She\'s a Geek AI Project</div>',

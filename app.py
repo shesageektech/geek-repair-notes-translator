@@ -1,9 +1,5 @@
-import base64
-import io
-
 import streamlit as st
 from google import genai
-from logo_data import LOGO_B64
 
 st.set_page_config(
     page_title="GEEK Repair Notes Translator",
@@ -146,14 +142,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-brand_logo, brand_label = st.columns([0.13, 0.87], vertical_alignment="center")
-with brand_logo:
-    st.image(io.BytesIO(base64.b64decode(LOGO_B64)), width=86)
-with brand_label:
-    st.markdown(
-        '<div class="geek-badge">She\'s a Geek AI Project</div>',
-        unsafe_allow_html=True
-    )
+st.markdown(
+    '<div class="geek-badge">She\'s a Geek AI Project</div>',
+    unsafe_allow_html=True
+)
 st.title("GEEK Repair Notes Translator")
 st.markdown(
     '<div class="geek-intro">Turn rough technician notes into clear, accurate documentation without changing the facts.</div>',
